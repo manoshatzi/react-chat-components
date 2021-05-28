@@ -5,19 +5,22 @@
   "description": "This monorepository uses npm v7 workspaces feature to crosslink dependencies between components library and sample applications.",
   "main": "index.js",
   "workspaces": [
-    "lib",
+    "packages/react",
+    "packages/react-native",
     "samples"
   ],
   "scripts": {
-    "start": "concurrently \"cd lib && npm run build:watch\" \"cd samples && npm run start\"",
-    "build": "cd lib && npm run build",
-    "test": "jest --config lib/jest.config.js",
-    "test:watch": "jest --config lib/jest.config.js --watch",
+    "postinstall": "cd packages/react-native && npx expo-yarn-workspaces postinstall",
+    "start:rn": "cd packages/react-native && npm start",
+    "start": "concurrently \"cd packages/react && npm run build:watch\" \"cd samples && npm run start\"",
+    "build": "cd packages/react && npm run build",
+    "test": "jest --config packages/react/jest.config.js",
+    "test:watch": "jest --config packages/react/jest.config.js --watch",
     "samples": "cd samples && npm run start",
     "samples:build": "cd samples && npm run build",
     "samples:deploy": "npm run samples:build && gh-pages -d samples/build -e samples",
-    "storybook": "start-storybook -p 6006 -c lib/docs",
-    "storybook:build": "build-storybook -c lib/docs",
+    "storybook": "start-storybook -p 6006 -c packages/react/docs",
+    "storybook:build": "build-storybook -c packages/react/docs",
     "storybook:deploy": "npm run storybook:build && gh-pages -d storybook-static -e docs"
   },
   "devDependencies": {
