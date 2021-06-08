@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from "react";
 import { UUIDMetadataObject, ObjectCustom } from "pubnub";
 import { usePubNub } from "pubnub-react";
 import { useAtom } from "jotai";
-import { ThemeAtom } from "../state-atoms";
+import { ThemeAtom } from "@pubnub/chat-components-common";
 import "./member-list.scss";
 
 export interface MemberListProps {

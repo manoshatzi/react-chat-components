@@ -9,6 +9,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "pubnub": "^4.29.9",
+    "pubnub-react": "^2.1.0",
     "react": "17.0.1",
     "react-native": "0.64.1"
   },

@@ -9,14 +9,14 @@ import React, {
 } from "react";
 import { useAtom } from "jotai";
 import { usePubNub } from "pubnub-react";
-import { EmojiPickerElementProps } from "../types";
+import { EmojiPickerElementProps } from "@pubnub/chat-components-common";
 import {
   CurrentChannelAtom,
   ThemeAtom,
   TypingIndicatorTimeoutAtom,
   UsersMetaAtom,
   ErrorFunctionAtom,
-} from "../state-atoms";
+} from "@pubnub/chat-components-common";
 import "./message-input.scss";
 
 export interface MessageInputProps {

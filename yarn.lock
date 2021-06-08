@@ -13207,7 +13207,7 @@ pubnub-react@^2.1.0:
   dependencies:
     ts-invariant "^0.4.4"
 
-pubnub@^4.29.10:
+pubnub@^4.29.10, pubnub@^4.29.9:
   version "4.32.1"
   resolved "https://registry.yarnpkg.com/pubnub/-/pubnub-4.32.1.tgz#8eef63be4754f186d048312a14968764abad4ac4"
   integrity sha512-hzwNmzVQD4SuGnepQt2JT5JCqgIP+laR1fqN8MVwUIclG0u7aSDcYn+0KJQceGWEpiN7GoQr6mQQ8K9TbiLz/w==

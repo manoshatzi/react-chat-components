@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from "react";
 import { useAtom } from "jotai";
 import { ChannelMetadataObject, ObjectCustom } from "pubnub";
-import { ThemeAtom, CurrentChannelAtom } from "../state-atoms";
+import { ThemeAtom, CurrentChannelAtom } from "@pubnub/chat-components-common";
 import "./channel-list.scss";
 
 export interface ChannelListProps {

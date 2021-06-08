@@ -12,7 +12,12 @@ import { FetchMessagesResponse, UUIDMetadataObject, ObjectCustom } from "pubnub"
 import { usePubNub } from "pubnub-react";
 import { useAtom } from "jotai";
 import { useAtomCallback } from "jotai/utils";
-import { Message, ImageAttachment, LinkAttachment, EmojiPickerElementProps } from "../types";
+import {
+  Message,
+  ImageAttachment,
+  LinkAttachment,
+  EmojiPickerElementProps,
+} from "@pubnub/chat-components-common";
 import {
   CurrentChannelAtom,
   CurrentChannelMessagesAtom,
@@ -21,7 +26,7 @@ import {
   ThemeAtom,
   RetryFunctionAtom,
   ErrorFunctionAtom,
-} from "../state-atoms";
+} from "@pubnub/chat-components-common";
 import SpinnerIcon from "./spinner.svg";
 import "./message-list.scss";
 

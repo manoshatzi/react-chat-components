@@ -11,7 +11,7 @@ import {
   StatusEvent,
 } from "pubnub";
 import { usePubNub } from "pubnub-react";
-import { Themes, Message, RetryOptions } from "../types";
+import { Themes, Message, RetryOptions } from "@pubnub/chat-components-common";
 import cloneDeep from "lodash.clonedeep";
 import setDeep from "lodash.set";
 import {
@@ -25,7 +25,7 @@ import {
   UsersMetaAtom,
   RetryFunctionAtom,
   ErrorFunctionAtom,
-} from "../state-atoms";
+} from "@pubnub/chat-components-common";
 
 /**
  * Chat wrapper is used to configure various common options and feed the components with data.

@@ -5,7 +5,7 @@ import {
   ThemeAtom,
   TypingIndicatorTimeoutAtom,
   UsersMetaAtom,
-} from "../state-atoms";
+} from "@pubnub/chat-components-common";
 import isEqual from "lodash.isequal";
 import "./typing-indicator.scss";
 
