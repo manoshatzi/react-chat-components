@@ -25,10 +25,10 @@ import { ReactComponent as PeopleGroup } from "../people-group.svg";
  * external source or loaded from PubNub Objects storage with custom hooks included in the package.
  * Sample messages are fully optional.
  * */
-import { rawUsers} from "@pubnub/sample-data";
-import { rawMessages} from "@pubnub/sample-data";
-import { socialChannels} from "@pubnub/sample-data";
-import { directChannels} from "@pubnub/sample-data";
+import { rawUsers } from "@pubnub/sample-data";
+import { rawMessages } from "@pubnub/sample-data";
+import { socialChannels } from "@pubnub/sample-data";
+import { directChannels } from "@pubnub/sample-data";
 const users: UUIDMetadataObject<ObjectCustom>[] = rawUsers;
 const socialChannelList: ChannelMetadataObject<ObjectCustom>[] = socialChannels;
 const directChannelList: ChannelMetadataObject<ObjectCustom>[] = directChannels;
@@ -70,7 +70,7 @@ function SimpleChat() {
           <div className="user">
             {currentUser?.profileUrl && <img src={currentUser?.profileUrl} alt="User avatar " />}
             <h4>
-              {currentUser?.name}{" "}
+              {currentUser?.name}
               <span className="close" onClick={() => setShowChannels(false)}>
                 ✕
               </span>

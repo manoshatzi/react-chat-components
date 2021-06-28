@@ -1,58 +1,58 @@
-.app-simple.light {
-  --app-background: #ffffff;
-  --app-color: #585858;
-  --app-avatar-background: #f8f6fd;
-  --app-info-color: #9b9b9b;
-  --app-info-border: #d7e0e9;
-  --app-chat-background: #f0f3f7;
-  --app-people-color: gray;
-  --app-people-active-color: #5babfc;
+// .app-simple.light {
+//   --app-background: #ffffff;
+//   --app-color: #585858;
+//   --app-avatar-background: #f8f6fd;
+//   --app-info-color: #9b9b9b;
+//   --app-info-border: #d7e0e9;
+//   --app-chat-background: #f0f3f7;
+//   --app-people-color: gray;
+//   --app-people-active-color: #5babfc;
 
-  .pn-msg-input {
-    --msg-input__background: transparent;
-    --msg-input__send__background: #5babfc;
-  }
+//   .pn-msg-input {
+//     --msg-input__background: transparent;
+//     --msg-input__send__background: #5babfc;
+//   }
 
-  .pn-msg-list--light {
-    --msg-list__background: transparent;
-    --msg--hover__background: #e5e8ec;
-  }
+//   .pn-msg-list--light {
+//     --msg-list__background: transparent;
+//     --msg--hover__background: #e5e8ec;
+//   }
 
-  .pn-channel-list--light {
-    --channel-list__background: #ffffff;
-    --channel--active__background: #f0f3f7;
-    --channel--hover__background: #5babfc;
-    --channel__name__color: #585858;
-    --channel--active__name__color: #585858;
-  }
-}
+//   .pn-channel-list--light {
+//     --channel-list__background: #ffffff;
+//     --channel--active__background: #f0f3f7;
+//     --channel--hover__background: #5babfc;
+//     --channel__name__color: #585858;
+//     --channel--active__name__color: #585858;
+//   }
+// }
 
-.app-simple.dark {
-  --app-background: #292b2f;
-  --app-color: #ffffff;
-  --app-avatar-background: #414348;
-  --app-info-color: #9b9b9b;
-  --app-info-border: #414348;
-  --app-chat-background: #2f3136;
-  --app-people-color: gray;
-  --app-people-active-color: #de2440;
+// .app-simple.dark {
+//   --app-background: #292b2f;
+//   --app-color: #ffffff;
+//   --app-avatar-background: #414348;
+//   --app-info-color: #9b9b9b;
+//   --app-info-border: #414348;
+//   --app-chat-background: #2f3136;
+//   --app-people-color: gray;
+//   --app-people-active-color: #de2440;
 
-  .pn-msg-input {
-    --msg-input__send__background: #de2440;
-  }
+//   .pn-msg-input {
+//     --msg-input__send__background: #de2440;
+//   }
 
-  .pn-msg-list--dark {
-    --msg-list__background: transparent;
-  }
+//   .pn-msg-list--dark {
+//     --msg-list__background: transparent;
+//   }
 
-  .pn-channel-list--dark {
-    --channel-list__background: #292b2f;
-    --channel--active__background: #2f3136;
-    --channel--hover__background: #de2440;
-    --channel__name__color: #9b9b9b;
-    --channel--active__name__color: #9b9b9b;
-  }
-}
+//   .pn-channel-list--dark {
+//     --channel-list__background: #292b2f;
+//     --channel--active__background: #2f3136;
+//     --channel--hover__background: #de2440;
+//     --channel__name__color: #9b9b9b;
+//     --channel--active__name__color: #9b9b9b;
+//   }
+// }
 
 .app-simple {
   background: var(--app-background);

@@ -1,6 +1,21 @@
 {
   "name": "@pubnub/chat-components-common",
   "version": "0.1.0",
-  "main": "index.ts",
-  "private": true
+  "main": "src/index.ts",
+  "private": true,
+  "devDependencies": {
+    "@types/pubnub": "^4.29.1",
+    "@types/react": "^16.9.53",
+    "jotai": "^0.16.2",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.merge": "^4.6.2",
+    "lodash.mergewith": "^4.6.2",
+    "lodash.set": "^4.3.2",
+    "tslib": "^2.1.0"
+  },
+  "peerDependencies": {
+    "pubnub": "^4.29.9",
+    "pubnub-react": "^2.1.0",
+    "react": ">16.8.0 || ^17.0.0"
+  }
 }
