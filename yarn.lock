@@ -87,7 +87,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.14.6, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.12.9, @babel/core@npm:^7.14.6, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.4, @babel/core@npm:^7.9.0":
+"@babel/core@npm:7.14.6, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.12.9, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.4, @babel/core@npm:^7.9.0":
   version: 7.14.6
   resolution: "@babel/core@npm:7.14.6"
   dependencies:
@@ -4344,23 +4344,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pubnub/component-docs@workspace:docs":
-  version: 0.0.0-use.local
-  resolution: "@pubnub/component-docs@workspace:docs"
-  dependencies:
-    "@babel/core": ^7.14.6
-    "@mdx-js/react": ^1.6.22
-    "@storybook/addon-actions": ^6.3.2
-    "@storybook/addon-docs": ^6.3.2
-    "@storybook/addon-essentials": ^6.3.2
-    "@storybook/addon-links": ^6.3.2
-    "@storybook/addons": 6.3.2
-    "@storybook/react": ^6.3.2
-    "@storybook/theming": 6.3.2
-    babel-loader: ^8.2.2
-  languageName: unknown
-  linkType: soft
-
 "@pubnub/mobile-group-chat@workspace:samples/mobile-group-chat":
   version: 0.0.0-use.local
   resolution: "@pubnub/mobile-group-chat@workspace:samples/mobile-group-chat"
@@ -4782,7 +4765,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-actions@npm:6.3.2, @storybook/addon-actions@npm:^6.3.2":
+"@storybook/addon-actions@npm:6.3.2":
   version: 6.3.2
   resolution: "@storybook/addon-actions@npm:6.3.2"
   dependencies:
@@ -4867,7 +4850,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:6.3.2, @storybook/addon-docs@npm:^6.3.2":
+"@storybook/addon-docs@npm:6.3.2":
   version: 6.3.2
   resolution: "@storybook/addon-docs@npm:6.3.2"
   dependencies:
@@ -4957,7 +4940,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-essentials@npm:^6.3.2":
+"@storybook/addon-essentials@npm:6.3.2":
   version: 6.3.2
   resolution: "@storybook/addon-essentials@npm:6.3.2"
   dependencies:
@@ -5001,7 +4984,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:^6.3.2":
+"@storybook/addon-links@npm:6.3.2":
   version: 6.3.2
   resolution: "@storybook/addon-links@npm:6.3.2"
   dependencies:
@@ -5631,7 +5614,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:^6.3.2":
+"@storybook/react@npm:6.3.2":
   version: 6.3.2
   resolution: "@storybook/react@npm:6.3.2"
   dependencies:
@@ -6594,9 +6577,9 @@ __metadata:
   linkType: hard
 
 "@types/webpack-env@npm:^1.16.0":
-  version: 1.16.0
-  resolution: "@types/webpack-env@npm:1.16.0"
-  checksum: eaf62fb65ba18737174a520a444bb7407e5a6f32581690c5a7a687e6f86e9d4ce336fd9e79989aafa19e5f390046ad54b9100cd3d70a43dcf0ab0161d30cd5bd
+  version: 1.16.1
+  resolution: "@types/webpack-env@npm:1.16.1"
+  checksum: 7d1a3ba850855ddb69691dc3553a93c955cb3d7eb287bf9a3079494f482126b4d967a2fdda32754e03f6ee3d789109af67768bac5e9f697436ab07f10a939431
   languageName: node
   linkType: hard
 
@@ -11323,6 +11306,21 @@ __metadata:
   checksum: 62d4b87b09421f813dd03eb17866cb307e278555475b25752396d3e5c7e63b9f0f64ab5b41edeb755cb52d722600a89977d36c64a94d02ed92c32e44a8b849f2
   languageName: node
   linkType: hard
+
+"docs@workspace:docs":
+  version: 0.0.0-use.local
+  resolution: "docs@workspace:docs"
+  dependencies:
+    "@storybook/addon-actions": 6.3.2
+    "@storybook/addon-essentials": 6.3.2
+    "@storybook/addon-links": 6.3.2
+    "@storybook/addons": 6.3.2
+    "@storybook/react": 6.3.2
+    "@storybook/theming": 6.3.2
+    node-sass: ^5.0.0
+    sass-loader: ^10.1.0
+  languageName: unknown
+  linkType: soft
 
 "doctrine@npm:^2.1.0":
   version: 2.1.0
@@ -23862,7 +23860,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"sass-loader@npm:^10.0.5":
+"sass-loader@npm:^10.0.5, sass-loader@npm:^10.1.0":
   version: 10.2.0
   resolution: "sass-loader@npm:10.2.0"
   dependencies:

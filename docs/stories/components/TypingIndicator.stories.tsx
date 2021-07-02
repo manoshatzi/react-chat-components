@@ -1,6 +1,11 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-import { TypingIndicator, TypingIndicatorProps, MessageInput, MessageList } from "../../../src";
+import {
+  TypingIndicator,
+  TypingIndicatorProps,
+  MessageInput,
+  MessageList,
+} from "../../../packages/react/src";
 
 export default {
   title: "Components/Typing Indicator",

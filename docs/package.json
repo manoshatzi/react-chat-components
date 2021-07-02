@@ -1,20 +1,21 @@
 {
-  "name": "docs",
-  "version": "1.0.0",
+  "name": "@pubnub/component-docs",
+  "version": "0.2.0",
   "private": true,
-  "description": "This monorepository uses npm v7 workspaces feature to crosslink dependencies between components library and sample applications.",
   "main": "main.js",
   "scripts": {
-    "storybook": "start-storybook -p 6006 -c packages/react/docs",
-    "storybook:build": "build-storybook -c packages/react/docs",
+    "storybook": "start-storybook -p 6006 -c ./",
+    "storybook:build": "build-storybook -c ./",
     "storybook:deploy": "npm run storybook:build && gh-pages -d storybook-static -e docs"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "6.2.9",
-    "@storybook/addon-essentials": "6.2.9",
-    "@storybook/addon-links": "6.2.9",
-    "@storybook/addons": "6.2.9",
-    "@storybook/react": "6.2.9",
-    "@storybook/theming": "6.2.9"
+    "@storybook/addon-actions": "6.3.2",
+    "@storybook/addon-essentials": "6.3.2",
+    "@storybook/addon-links": "6.3.2",
+    "@storybook/addons": "6.3.2",
+    "@storybook/react": "6.3.2",
+    "@storybook/theming": "6.3.2",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0"
   }
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import { PubNubProvider } from "pubnub-react";
 
-import { Chat } from "../src";
-import { PubNubMock } from "../mock/pubnub-mock";
-import users from "../../data/users.json";
+import { Chat } from "../packages/react/src";
+import { PubNubMock } from "../packages/react/mock/pubnub-mock";
+import { rawUsers } from "@pubnub/sample-data";
 
 const pubnub = new PubNubMock();
 
@@ -13,8 +13,8 @@ export const decorators = [
       <Chat
         {...{
           currentChannel: "space_ac4e67b98b34b44c4a39466e93e",
-          theme: context.parameters.theme || "dark",
-          users,
+          theme: context.parameters.theme || "light",
+          users: rawUsers,
         }}
       >
         <Story />

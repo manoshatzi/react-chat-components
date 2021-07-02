@@ -1,6 +1,7 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-import { Chat, ChatProps } from "../../../src";
+// importing with @pubnub/react-chat-components breaks the prop tables
+import { Chat, ChatProps } from "../../../packages/react/src";
 
 export default {
   title: "Components/Chat (Provider)",
