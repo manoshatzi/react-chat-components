@@ -13,7 +13,7 @@ const pubnub = new PubNub({
 function SimpleChat(): JSX.Element {
   return (
     <Chat currentChannel="space_5f3547a18f448e567e84ba097db">
-      <ChannelList channels={socialChannels} />
+      <ChannelList channels={socialChannels} style={channelListStyles} />
     </Chat>
   );
 }
@@ -33,4 +33,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
   },
+});
+
+const channelListStyles = StyleSheet.create({
+  // channelActive: {
+  //   backgroundColor: "red",
+  // },
 });

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,13 +8,30 @@ import {
   TouchableHighlight,
   ListRenderItem,
 } from "react-native";
-
 import { ChannelMetadataObject, ObjectCustom } from "pubnub";
-import { ChannelListProps, useChannelListCore, toPascal } from "@pubnub/chat-components-common";
+import { ChannelListCoreProps, useChannelListCore, toPascal } from "@pubnub/chat-components-common";
+import defaultStyle from "./channel-list.style";
 
+export type ChannelListProps = ChannelListCoreProps & {
+  style: StyleSheet;
+};
+
+/**
+ * Renders an interactive list of channels. It can represent all channels of the application, only
+ * channels joined by the current user, all channels available to be joined or whatever else is
+ * passed into it. A common patttern in Chat Applications is to render two instances of the
+ * component - one visible all the time to show joined channels, and another one hidden inside of a
+ * modal with channels available to join. Make sure to handle onChannelSwitched event to switch
+ * current channel passed to the Chat provider, or whatever else is expected.
+ */
 export const ChannelList: FC<ChannelListProps> = (props: ChannelListProps) => {
+  const [style, setStyle] = useState(defaultStyle);
   const { isChannelActive, channelSorter, channelFromString, switchChannel, theme } =
     useChannelListCore(props);
+
+  useEffect(() => {
+    setStyle(Object.assign({}, defaultStyle, props.style));
+  }, [setStyle, props.style]);
 
   const renderChannel: ListRenderItem<ChannelMetadataObject<ObjectCustom>> = ({ item }) => {
     const channel = item;
@@ -25,21 +42,18 @@ export const ChannelList: FC<ChannelListProps> = (props: ChannelListProps) => {
 
     return (
       <TouchableHighlight onPress={() => switchChannel(item)}>
-        <View
-          style={[styles.channelNormal, isChannelActive(channel) ? styles.channelActive : null]}
-        >
+        <View style={[style.channelNormal, isChannelActive(channel) ? style.channelActive : null]}>
           <Image
-            style={styles.channelThumb}
+            style={style.channelThumb}
             source={{
               uri: channel.custom?.thumb as string,
             }}
           />
           <View>
-            <Text style={styles.channelName}>{channel.name}</Text>
+            <Text style={style.channelName}>{channel.name}</Text>
             {channel.description && (
-              <Text style={styles.channelDescription}>{channel.description}</Text>
+              <Text style={style.channelDescription}>{channel.description}</Text>
             )}
-            <Text>{isChannelActive(item) ? "active" : "non-active"}</Text>
           </View>
         </View>
       </TouchableHighlight>
@@ -65,9 +79,9 @@ export const ChannelList: FC<ChannelListProps> = (props: ChannelListProps) => {
   };
 
   return (
-    <View style={styles.channelListWrapper}>
+    <View style={style.channelListWrapper}>
       <FlatList
-        style={[styles.channelList, styles[`channelList${toPascal(theme)}`]]}
+        style={[style.channelList, style[`channelList${toPascal(theme)}`]]}
         data={(props.channels as string[]).map(channelFromString).sort(channelSorter)}
         renderItem={renderChannel}
         keyExtractor={(channel) => channel.id}
@@ -76,39 +90,3 @@ export const ChannelList: FC<ChannelListProps> = (props: ChannelListProps) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  channelListWrapper: {
-    flex: 1,
-  },
-  channelList: {
-    backgroundColor: "#ffffff",
-  },
-  channelListLight: {},
-  channelListDark: {
-    backgroundColor: "black",
-  },
-  channelListEventDark: {
-    backgroundColor: "gray",
-  },
-  channelNormal: {
-    alignItems: "center",
-    flexDirection: "row",
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-  },
-  channelActive: {
-    backgroundColor: "red",
-  },
-  channelName: {
-    color: "black",
-    fontSize: 15,
-  },
-  channelDescription: {},
-  channelThumb: {
-    borderRadius: 50,
-    height: 36,
-    marginRight: 20,
-    width: 36,
-  },
-});

@@ -1,7 +1,9 @@
 import React, { FC } from "react";
 import { ChannelMetadataObject, ObjectCustom } from "pubnub";
-import { ChannelListProps, useChannelListCore } from "@pubnub/chat-components-common";
+import { ChannelListCoreProps, useChannelListCore } from "@pubnub/chat-components-common";
 import "./channel-list.scss";
+
+export type ChannelListProps = ChannelListCoreProps;
 
 /**
  * Renders an interactive list of channels. It can represent all channels of the application, only

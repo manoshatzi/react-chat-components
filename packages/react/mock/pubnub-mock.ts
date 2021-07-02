@@ -7,9 +7,7 @@ import type {
   PublishResponse,
   SignalResponse,
 } from "pubnub";
-import users from "../../data/users.json";
-import messages from "../../data/messages-lorem.json";
-import channels from "../../data/channels-work.json";
+import { rawUsers, rawMessages, workChannels } from "@pubnub/sample-data";
 
 export function PubNubMock(): Partial<PubNub> {
   const uuid = "user_63ea15931d8541a3bd35e5b1f09087dc";
@@ -42,7 +40,7 @@ export function PubNubMock(): Partial<PubNub> {
   };
 
   const fetchMessages = async (args) => {
-    let messagesCopy = [...messages];
+    let messagesCopy = [...rawMessages];
     if (args.start) {
       messagesCopy = messagesCopy.filter((m) => parseInt(m.timetoken) < parseInt(args.start));
     }
@@ -97,7 +95,7 @@ export function PubNubMock(): Partial<PubNub> {
       uuid,
       actions: {},
     };
-    messages.push(message);
+    rawMessages.push(message);
     listeners.message(message);
     return new Promise<PublishResponse>((resolve) => {
       resolve({
@@ -135,13 +133,13 @@ export function PubNubMock(): Partial<PubNub> {
 
   // const objects = {
   // getAllUUIDMetadata: () => ({
-  //   data: users.map((u) => u.uuid),
+  //   data: rawUsers.map((u) => u.uuid),
   // }),
   // getAllChannelMetadata: () => ({
-  //   data: channels,
+  //   data: workChannels,
   // }),
   // getChannelMembers: () => ({
-  //   data: users,
+  //   data: rawUsers,
   // }),
   // getMemberships: () => ({
   //   data: [
@@ -153,7 +151,7 @@ export function PubNubMock(): Partial<PubNub> {
   //   ],
   // }),
   // getUUIDMetadata: (args) => ({
-  //   data: users.find((u) => u.uuid.id === args.uuid).uuid,
+  //   data: rawUsers.find((u) => u.uuid.id === args.uuid).uuid,
   // }),
   // };
 

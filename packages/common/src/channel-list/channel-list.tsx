@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import { ChannelMetadataObject, ObjectCustom } from "pubnub";
 import { ThemeAtom, CurrentChannelAtom } from "../state-atoms";
 
-export interface ChannelListProps {
+export interface ChannelListCoreProps {
   children?: ReactNode;
   /** Pass a list of channels, including metadata, to render on the list */
   channels: ChannelMetadataObject<ObjectCustom>[] | string[];
@@ -13,7 +13,7 @@ export interface ChannelListProps {
   onChannelSwitched?: (channel: ChannelMetadataObject<ObjectCustom>) => unknown;
 }
 
-export const useChannelListCore = (props: ChannelListProps) => {
+export const useChannelListCore = (props: ChannelListCoreProps) => {
   const [currentChannel] = useAtom(CurrentChannelAtom);
   const [theme] = useAtom(ThemeAtom);
 
