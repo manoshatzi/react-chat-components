@@ -1,13 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  Image,
-  TouchableHighlight,
-  ListRenderItem,
-} from "react-native";
+import { StyleSheet, Text, View, FlatList, Image, Pressable, ListRenderItem } from "react-native";
 import { ChannelMetadataObject, ObjectCustom } from "pubnub";
 import { ChannelListCoreProps, useChannelListCore, toPascal } from "@pubnub/chat-components-common";
 import defaultStyle from "./channel-list.style";
@@ -25,13 +17,13 @@ export type ChannelListProps = ChannelListCoreProps & {
  * current channel passed to the Chat provider, or whatever else is expected.
  */
 export const ChannelList: FC<ChannelListProps> = (props: ChannelListProps) => {
-  const [style, setStyle] = useState(defaultStyle);
   const { isChannelActive, channelSorter, channelFromString, switchChannel, theme } =
     useChannelListCore(props);
+  const [style, setStyle] = useState(defaultStyle(theme));
 
   useEffect(() => {
-    setStyle(Object.assign({}, defaultStyle, props.style));
-  }, [setStyle, props.style]);
+    setStyle(Object.assign({}, defaultStyle(theme), props.style));
+  }, [setStyle, props.style, theme]);
 
   const renderChannel: ListRenderItem<ChannelMetadataObject<ObjectCustom>> = ({ item }) => {
     const channel = item;
@@ -41,40 +33,44 @@ export const ChannelList: FC<ChannelListProps> = (props: ChannelListProps) => {
     }
 
     return (
-      <TouchableHighlight onPress={() => switchChannel(item)}>
-        <View style={[style.channelNormal, isChannelActive(channel) ? style.channelActive : null]}>
-          <Image
-            style={style.channelThumb}
-            source={{
-              uri: channel.custom?.thumb as string,
-            }}
-          />
-          <View>
-            <Text style={style.channelName}>{channel.name}</Text>
-            {channel.description && (
-              <Text style={style.channelDescription}>{channel.description}</Text>
+      <Pressable
+        onPress={() => switchChannel(channel)}
+        style={({ pressed }) => [
+          style.channel,
+          isChannelActive(channel) ? style.channelActive : {},
+          pressed ? style.channelPressed : {},
+        ]}
+      >
+        {({ pressed }) => (
+          <>
+            {channel.custom?.thumb && (
+              <Image style={style.channelThumb} source={{ uri: channel.custom?.thumb as string }} />
             )}
-          </View>
-        </View>
-      </TouchableHighlight>
-
-      // <div
-      //   key={channel.id}
-      //   className={`pn-channel ${activeClass}`}
-      //   onClick={() => switchChannel(channel)}
-      // >
-      //   {channel.custom?.thumb && (
-      //     <img
-      //       className="pn-channel__thumb"
-      //       src={channel.custom?.thumb as string}
-      //       alt="Channel thumb"
-      //     />
-      //   )}
-      //   <div className="pn-channel__title">
-      //     <p className="pn-channel__name">{channel.name}</p>
-      //     {channel.description && <p className="pn-channel__description">{channel.description}</p>}
-      //   </div>
-      // </div>
+            <View>
+              <Text
+                style={[
+                  style.channelName,
+                  pressed ? style.channelNamePressed : {},
+                  isChannelActive(channel) ? style.channelNameActive : {},
+                ]}
+              >
+                {channel.name}
+              </Text>
+              {channel.description && (
+                <Text
+                  style={[
+                    style.channelDescription,
+                    pressed ? style.channelDescriptionPressed : {},
+                    isChannelActive(channel) ? style.channelDescriptionActive : {},
+                  ]}
+                >
+                  {channel.description}
+                </Text>
+              )}
+            </View>
+          </>
+        )}
+      </Pressable>
     );
   };
 

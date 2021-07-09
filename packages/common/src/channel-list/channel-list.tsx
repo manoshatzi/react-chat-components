@@ -36,7 +36,7 @@ export const useChannelListCore = (props: ChannelListCoreProps) => {
       return {
         id: channel,
         name: channel,
-      };
+      } as ChannelMetadataObject<ObjectCustom>;
     }
     return channel;
   };

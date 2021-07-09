@@ -1,5 +1,6 @@
-import React from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, SafeAreaView, Switch, Text, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import PubNub from "pubnub";
 import { PubNubProvider } from "pubnub-react";
 import { Chat, ChannelList } from "@pubnub/react-native-chat-components";
@@ -10,33 +11,57 @@ const pubnub = new PubNub({
   subscribeKey: "sub-c-1456a186-fd7e-11ea-ae2d-56dc81df9fb5",
 });
 
-function SimpleChat(): JSX.Element {
+export function SimpleChat({ theme }: { theme: string }): JSX.Element {
+  const [currentChannel, setCurrentChannel] = useState(socialChannels[0]);
+
   return (
-    <Chat currentChannel="space_5f3547a18f448e567e84ba097db">
-      <ChannelList channels={socialChannels} style={channelListStyles} />
+    <Chat currentChannel={currentChannel.id} theme={theme}>
+      <ChannelList
+        channels={socialChannels}
+        onChannelSwitched={(channel) => setCurrentChannel(channel)}
+      />
     </Chat>
   );
 }
 
 export default function App(): JSX.Element {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={[styles.safeArea, darkMode && styles.safeAreaDark]}>
       <PubNubProvider client={pubnub}>
-        <SimpleChat />
+        <SimpleChat theme={darkMode ? "dark" : "light"} />
       </PubNubProvider>
+      <View style={styles.switchView}>
+        <Text style={[styles.switchLabel, darkMode && styles.switchLabelDark]}>Dark theme</Text>
+        <Switch onValueChange={() => setDarkMode(!darkMode)} value={darkMode} />
+      </View>
+      <StatusBar style={darkMode ? "light" : "dark"} />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   safeArea: {
+    backgroundColor: "#ffffff",
     flex: 1,
-    justifyContent: "flex-start",
+    padding: 0,
   },
-});
-
-const channelListStyles = StyleSheet.create({
-  // channelActive: {
-  //   backgroundColor: "red",
-  // },
+  safeAreaDark: {
+    backgroundColor: "#292b2f",
+  },
+  switchView: {
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  switchLabel: {
+    color: "#585858",
+    fontSize: 15,
+    fontWeight: "500",
+    paddingRight: 15,
+  },
+  switchLabelDark: {
+    color: "#ffffff",
+  },
 });
