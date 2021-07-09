@@ -47,7 +47,6 @@
     "jest-scss-transform": "^1.0.1",
     "node-sass": "^5.0.0",
     "rollup": "^2.32.1",
-    "rollup-plugin-dts": "^3.0.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^3.1.8",
     "rollup-plugin-typescript2": "^0.30.0",
@@ -58,8 +57,8 @@
   "peerDependencies": {
     "pubnub": "^4.29.9",
     "pubnub-react": "^2.1.0",
-    "react": ">16.8.0 || ^17.0.0",
-    "react-dom": ">16.8.0 || ^17.0.0"
+    "react": ">16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": ">16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "jotai": "^0.16.2",

@@ -13,7 +13,10 @@ module.exports = {
     ),
   },
   projectRoot: path.resolve(__dirname),
-  watchFolders: [path.resolve(__dirname, "../../packages"), path.resolve(__dirname, "../../data")],
+  watchFolders: [
+    path.resolve(__dirname, "../../packages/react-native"),
+    path.resolve(__dirname, "../../data"),
+  ],
   transformer: {
     getTransformOptions: async () => ({
       transform: {

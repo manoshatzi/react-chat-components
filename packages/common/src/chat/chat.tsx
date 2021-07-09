@@ -162,27 +162,27 @@ export const ChatInternal: FC<ChatProps> = (props: ChatProps) => {
    */
   useEffect(() => {
     setTheme(props.theme);
-  }, [props.theme]);
+  }, [setTheme, props.theme]);
 
   useEffect(() => {
     setCurrentChannel(props.currentChannel);
-  }, [props.currentChannel]);
+  }, [setCurrentChannel, props.currentChannel]);
 
   useEffect(() => {
     setChannels(props.channels);
-  }, [props.channels]);
+  }, [setChannels, props.channels]);
 
   useEffect(() => {
     setChannelGroups(props.channelGroups);
-  }, [props.channelGroups]);
+  }, [setChannelGroups, props.channelGroups]);
 
   useEffect(() => {
     setErrorFunction({ function: (error) => props.onError(error) });
-  }, [props.onError]);
+  }, [setErrorFunction, props.onError]);
 
   useEffect(() => {
     setRetryFunction({ function: (fn) => retryOnError(fn) });
-  }, [retryOnError]);
+  }, [setRetryFunction, retryOnError]);
 
   /**
    * Lifecycle: react to state changes
@@ -192,9 +192,13 @@ export const ChatInternal: FC<ChatProps> = (props: ChatProps) => {
     setupListeners();
 
     /* Try to unsubscribe beofore window is unloaded */
-    window.addEventListener("beforeunload", () => {
-      pubnub.stop();
-    });
+    /* TODO: this causes runtime to silently fail when run on React Native platform
+     */
+    // if (window) {
+    //   window.addEventListener("beforeunload", () => {
+    //     pubnub.stop();
+    //   });
+    // }
 
     return () => {
       pubnub.stop();
