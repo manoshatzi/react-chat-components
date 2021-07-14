@@ -6,7 +6,8 @@ import { render, screen } from "../mock/custom-renderer";
 import { Picker } from "../mock/emoji-picker-mock";
 import userEvent from "@testing-library/user-event";
 
-describe("Message List", () => {
+/* Test suite skipped until the component is moved over to common/ui packages extraction */
+describe.skip("Message List", () => {
   let scrollIntoViewMock;
   let intersectionObserverMock;
 

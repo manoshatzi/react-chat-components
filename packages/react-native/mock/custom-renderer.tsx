@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import PubNub from "pubnub";
 import { PubNubProvider } from "pubnub-react";
-import { render, RenderResult } from "@testing-library/react";
+import { render } from "@testing-library/react-native";
 import { Chat, ChatProps } from "@pubnub/chat-components-common";
 import { PubNubMock } from "./pubnub-mock";
 
@@ -13,10 +13,7 @@ const defaultOptions = {
   },
 };
 
-const customRender = (
-  ui: ReactNode,
-  options: { providerProps: ChatProps } = defaultOptions
-): RenderResult => {
+const customRender = (ui: ReactNode, options: { providerProps: ChatProps } = defaultOptions) => {
   const { providerProps, ...renderOptions } = options;
 
   return render(
@@ -27,5 +24,5 @@ const customRender = (
   );
 };
 
-export * from "@testing-library/react";
+export * from "@testing-library/react-native";
 export { customRender as render };

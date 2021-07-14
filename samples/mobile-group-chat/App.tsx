@@ -19,6 +19,7 @@ export function SimpleChat({ theme }: { theme: string }): JSX.Element {
       <ChannelList
         channels={socialChannels}
         onChannelSwitched={(channel) => setCurrentChannel(channel)}
+        style={channelsListStyle}
       />
     </Chat>
   );
@@ -63,5 +64,11 @@ const styles = StyleSheet.create({
   },
   switchLabelDark: {
     color: "#ffffff",
+  },
+});
+
+const channelsListStyle = StyleSheet.create({
+  channelActive: {
+    backgroundColor: "lightgray",
   },
 });

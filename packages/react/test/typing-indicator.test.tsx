@@ -5,7 +5,8 @@ import { TypingIndicator } from "../src/typing-indicator/typing-indicator";
 import { render, waitFor, screen } from "../mock/custom-renderer";
 import userEvent from "@testing-library/user-event";
 
-describe("Typing Indicator", () => {
+/* Test suite skipped until the component is moved over to common/ui packages extraction */
+describe.skip("Typing Indicator", () => {
   test("shows up when typing and then disappears when clearing the input", async () => {
     render(
       <div>

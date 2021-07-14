@@ -6,7 +6,7 @@
   "devDependencies": {
     "@types/pubnub": "^4.29.1",
     "@types/react": "^16.9.53",
-    "jotai": "^0.16.2",
+    "jotai": "^1.1.3",
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2",
     "lodash.mergewith": "^4.6.2",

@@ -3859,7 +3859,7 @@ __metadata:
   dependencies:
     "@types/pubnub": ^4.29.1
     "@types/react": ^16.9.53
-    jotai: ^0.16.2
+    jotai: ^1.1.3
     lodash.clonedeep: ^4.5.0
     lodash.merge: ^4.6.2
     lodash.mergewith: ^4.6.2
@@ -3950,7 +3950,7 @@ __metadata:
     gh-pages: ^3.1.0
     jest: 26.6.0
     jest-scss-transform: ^1.0.1
-    jotai: ^0.16.2
+    jotai: ^1.1.3
     lodash.isequal: ^4.5.0
     lodash.mergewith: ^4.6.2
     lodash.set: ^4.3.2
@@ -3981,8 +3981,8 @@ __metadata:
     "@rollup/plugin-node-resolve": ^9.0.0
     "@svgr/rollup": ^5.4.0
     "@svgr/webpack": ^5.5.0
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.2.5
+    "@testing-library/jest-native": ^4.0.1
+    "@testing-library/react-native": ^7.2.0
     "@testing-library/user-event": ^13.1.1
     "@types/jest": ^26.0.20
     "@types/pubnub": ^4.29.1
@@ -3991,7 +3991,7 @@ __metadata:
     gh-pages: ^3.1.0
     jest: 26.6.0
     jest-scss-transform: ^1.0.1
-    jotai: ^0.16.2
+    jotai: ^1.1.3
     lodash.clonedeep: ^4.5.0
     lodash.isequal: ^4.5.0
     lodash.merge: ^4.6.2
@@ -3999,6 +3999,7 @@ __metadata:
     lodash.set: ^4.3.2
     node-sass: ^5.0.0
     react-native: 0.63.2
+    react-test-renderer: ^16.0.0
     rollup: ^2.32.1
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-postcss: ^3.1.8
@@ -5692,6 +5693,33 @@ __metadata:
     lodash: ^4.17.15
     redent: ^3.0.0
   checksum: b0c4b4ffa1d58bdf22f1682eb973397e8044a3cdd8527de8d1c8169640b3c4585165abcbfc819dee7f4aa40204c6a63afb28dd74ad9bb4e1bfbdc680fd491e30
+  languageName: node
+  linkType: hard
+
+"@testing-library/jest-native@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@testing-library/jest-native@npm:4.0.1"
+  dependencies:
+    chalk: ^2.4.1
+    jest-diff: ^24.0.0
+    jest-matcher-utils: ^24.0.0
+    pretty-format: ^24.0.0
+    ramda: ^0.26.1
+    redent: ^2.0.0
+  checksum: 0b2d09622966216e53b59bffa9fea96f0f315d63372e5565d151aabad0181853b78e4332e75d12c9f5e63c36617f242cc576c47b3816adda0fd8dea57ccaa155
+  languageName: node
+  linkType: hard
+
+"@testing-library/react-native@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "@testing-library/react-native@npm:7.2.0"
+  dependencies:
+    pretty-format: ^26.0.1
+  peerDependencies:
+    react: ">=16.0.0"
+    react-native: ">=0.59"
+    react-test-renderer: ">=16.0.0"
+  checksum: 9a171610ce70ef782cb4fd43618c811e9e3d37bcbf6e61c34b134547d33119c83a3a5f63c93964949842350999180fdf7bbf9c05b50668a25eed6ac1f3925986
   languageName: node
   linkType: hard
 
@@ -10932,6 +10960,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"diff-sequences@npm:^24.9.0":
+  version: 24.9.0
+  resolution: "diff-sequences@npm:24.9.0"
+  checksum: 049107ba804c3a332fe7edefd1cec8df33a18a99c6af77f88b3b9d22b5ee2e1940dbde23b97f97b0d7250a98f8c488c3ba552ebab54dc75c9542c1e90232d009
+  languageName: node
+  linkType: hard
+
 "diff-sequences@npm:^26.6.2":
   version: 26.6.2
   resolution: "diff-sequences@npm:26.6.2"
@@ -14791,6 +14826,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"indent-string@npm:^3.0.0":
+  version: 3.2.0
+  resolution: "indent-string@npm:3.2.0"
+  checksum: 00d5200e3afc1ecfde7e82a28d14ce5e01ae5f07f883b5fdaa80146bb15854764f6a0e0ce5e41e30f377e25285139925adaf744b1754d83d69ab3852de7cd450
+  languageName: node
+  linkType: hard
+
 "indent-string@npm:^4.0.0":
   version: 4.0.0
   resolution: "indent-string@npm:4.0.0"
@@ -15942,6 +15984,18 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"jest-diff@npm:^24.0.0, jest-diff@npm:^24.9.0":
+  version: 24.9.0
+  resolution: "jest-diff@npm:24.9.0"
+  dependencies:
+    chalk: ^2.0.1
+    diff-sequences: ^24.9.0
+    jest-get-type: ^24.9.0
+    pretty-format: ^24.9.0
+  checksum: ba4aa10e5712ad365700921c90362dae8c2ab5b2c599b6f64fc4f3013f6208d760cb2980d491010e602e4a36b28a5c18fceba251f7602929d93300ae03ae931c
+  languageName: node
+  linkType: hard
+
 "jest-diff@npm:^26.0.0, jest-diff@npm:^26.6.2":
   version: 26.6.2
   resolution: "jest-diff@npm:26.6.2"
@@ -16100,6 +16154,18 @@ fsevents@^1.2.7:
     jest-get-type: ^26.3.0
     pretty-format: ^26.6.2
   checksum: 08c1bbb628c46d22bead4de7bcbe6a4c9d5761d55f15a1d938b9409473eeb6175545ebade44318f9ae950fcdf484e1cbffbbcdcce8600b946e21300d7d1ed206
+  languageName: node
+  linkType: hard
+
+"jest-matcher-utils@npm:^24.0.0":
+  version: 24.9.0
+  resolution: "jest-matcher-utils@npm:24.9.0"
+  dependencies:
+    chalk: ^2.0.1
+    jest-diff: ^24.9.0
+    jest-get-type: ^24.9.0
+    pretty-format: ^24.9.0
+  checksum: 3f7d216a5f3ba562692e8f54add1391516af7dba4ad8e48256a732bbb2fef177b0a9095c3e3f21172ef1f461a73f3fa2c02a60093e3f4d556d6967d25c47e4b7
   languageName: node
   linkType: hard
 
@@ -16483,17 +16549,21 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jotai@npm:^0.16.2":
-  version: 0.16.11
-  resolution: "jotai@npm:0.16.11"
+"jotai@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "jotai@npm:1.1.3"
   peerDependencies:
+    "@urql/core": "*"
     immer: "*"
     optics-ts: "*"
     react: ">=16.8"
     react-query: "*"
     valtio: "*"
+    wonka: "*"
     xstate: "*"
   peerDependenciesMeta:
+    "@urql/core":
+      optional: true
     immer:
       optional: true
     optics-ts:
@@ -16502,9 +16572,11 @@ fsevents@^1.2.7:
       optional: true
     valtio:
       optional: true
+    wonka:
+      optional: true
     xstate:
       optional: true
-  checksum: 303d63137099da65cb3b553dec8b07d4e460d7596da40213c2dc018f15dfd64ca1efd9706ea3d882cb044d14129ccc68f51737a01d1f47cf3ea3d35ff998ef9a
+  checksum: 1c7b36227de19c5f10a00e47bcdc285b6c483538695d7d165623618dccf736136efd9d52adb8f094f9ed25a0ad28a8faa697487cfbec2664f97d806877a74f20
   languageName: node
   linkType: hard
 
@@ -21171,7 +21243,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^24.9.0":
+"pretty-format@npm:^24.0.0, pretty-format@npm:^24.9.0":
   version: 24.9.0
   resolution: "pretty-format@npm:24.9.0"
   dependencies:
@@ -21195,7 +21267,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^26.0.0, pretty-format@npm:^26.4.0, pretty-format@npm:^26.6.0, pretty-format@npm:^26.6.2":
+"pretty-format@npm:^26.0.0, pretty-format@npm:^26.0.1, pretty-format@npm:^26.4.0, pretty-format@npm:^26.6.0, pretty-format@npm:^26.6.2":
   version: 26.6.2
   resolution: "pretty-format@npm:26.6.2"
   dependencies:
@@ -21646,6 +21718,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"ramda@npm:^0.26.1":
+  version: 0.26.1
+  resolution: "ramda@npm:0.26.1"
+  checksum: 22e3fbfabdf45d7f7e8e0ff198be6c1f94d1cc16dd68f4c1786436b4583f8f1ef610a3bf0e8e8984c11346791da6ebadbe5b63dd29f2939bdfed7362d277c07b
+  languageName: node
+  linkType: hard
+
 "randombytes@npm:^2.0.0, randombytes@npm:^2.0.1, randombytes@npm:^2.0.5, randombytes@npm:^2.1.0":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0"
@@ -21946,7 +22025,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.12.0, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4":
+"react-is@npm:^16.12.0, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4, react-is@npm:^16.8.6":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 11bcf1267a314a522615f626f3ce3727a3a24cdbf61c4d452add3550a7875326669631326cfb1ba3e92b6f72244c32ffecf93ad21c0cad8455d3e169d0e3f060
@@ -22285,6 +22364,20 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-test-renderer@npm:^16.0.0":
+  version: 16.14.0
+  resolution: "react-test-renderer@npm:16.14.0"
+  dependencies:
+    object-assign: ^4.1.1
+    prop-types: ^15.6.2
+    react-is: ^16.8.6
+    scheduler: ^0.19.1
+  peerDependencies:
+    react: ^16.14.0
+  checksum: 0905787bfd68865098743ca2d18d874ef09929b80730131c017ced55bcf7082e84f66ec76685799a759812d376de6db718f6d643a2705779a491003d01d45956
+  languageName: node
+  linkType: hard
+
 "react-textarea-autosize@npm:^8.3.0":
   version: 8.3.3
   resolution: "react-textarea-autosize@npm:8.3.3"
@@ -22547,6 +22640,16 @@ fsevents@^1.2.7:
     indent-string: ^2.1.0
     strip-indent: ^1.0.1
   checksum: 961d06c069c2a3932e9cde95822eceffa4d09ae01af33c123b0387d67bc976fd895b2012a3b8988c336b6f79cd17a8cc0a4a5f003b1e60cafad0d3b905111527
+  languageName: node
+  linkType: hard
+
+"redent@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "redent@npm:2.0.0"
+  dependencies:
+    indent-string: ^3.0.0
+    strip-indent: ^2.0.0
+  checksum: 6ab188445205d271b23636716d394f983f183c44b12d922c4cd06a172d23c657c44f92d46691dcc6c8f6d5286904a444e16e61d10fc03e12f7f8280e50da9181
   languageName: node
   linkType: hard
 
@@ -24716,6 +24819,13 @@ resolve@^2.0.0-next.3:
   bin:
     strip-indent: cli.js
   checksum: 9ec818484a53a8f564b7a56148db2883dad4fe665cc76583df5eb5b2e216b5ed48e4d63d1da525e990030c47c41d648e48053a505dd29f7a87568733b147a533
+  languageName: node
+  linkType: hard
+
+"strip-indent@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "strip-indent@npm:2.0.0"
+  checksum: 3b416b1dcd3d462adf3c49b552c946ef84ac595a5821923e3eb270304898ba3d1fa569dc212d43e502c54ee296590dfa25b08da488d5fc0920785fe4341d76b0
   languageName: node
   linkType: hard
 

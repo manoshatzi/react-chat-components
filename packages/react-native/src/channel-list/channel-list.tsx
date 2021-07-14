@@ -5,7 +5,7 @@ import { ChannelListCoreProps, useChannelListCore, toPascal } from "@pubnub/chat
 import defaultStyle from "./channel-list.style";
 
 export type ChannelListProps = ChannelListCoreProps & {
-  style: StyleSheet;
+  style?: StyleSheet;
 };
 
 /**
