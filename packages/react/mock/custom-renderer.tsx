@@ -3,7 +3,7 @@ import PubNub from "pubnub";
 import { PubNubProvider } from "pubnub-react";
 import { render, RenderResult } from "@testing-library/react";
 import { Chat, ChatProps } from "@pubnub/chat-components-common";
-import { PubNubMock } from "./pubnub-mock";
+import { PubNubMock } from "@pubnub/chat-components-common/mock/pubnub-mock";
 
 const pubnub = PubNubMock() as PubNub;
 

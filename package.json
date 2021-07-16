@@ -12,9 +12,10 @@
     ]
   },
   "scripts": {
-    "docs": "yarn workspace @pubnub/component-docs run storybook",
+    "docs": "lerna run storybook --stream",
     "web": "concurrently \"yarn workspace @pubnub/react-chat-components build:watch\" \"yarn workspace @pubnub/web-group-chat start\"",
-    "mobile": "concurrently \"yarn workspace @pubnub/react-native-chat-components build:watch\" \"yarn workspace @pubnub/mobile-group-chat start\""
+    "mobile": "concurrently \"yarn workspace @pubnub/react-native-chat-components build:watch\" \"yarn workspace @pubnub/mobile-group-chat start\"",
+    "test": "lerna run test --parallel"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.5.0",

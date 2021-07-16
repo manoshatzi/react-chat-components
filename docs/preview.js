@@ -1,8 +1,8 @@
 import React from "react";
 import { PubNubProvider } from "pubnub-react";
 
-import { Chat } from "../packages/react/src";
-import { PubNubMock } from "../packages/react/mock/pubnub-mock";
+import { Chat } from "@pubnub/chat-components-common";
+import { PubNubMock } from "@pubnub/chat-components-common/mock/pubnub-mock";
 import { rawUsers } from "@pubnub/sample-data";
 
 const pubnub = new PubNubMock();

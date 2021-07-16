@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { Themes } from "@pubnub/chat-components-common";
 
-const lightColors = {
+export const lightColors = {
   channelListBackground: "#ffffff",
   channelBackground: "transparent",
   channelPressedBackground: "#5babfc",
@@ -14,7 +14,7 @@ const lightColors = {
   channelDescriptionActiveColor: "#9b9b9b",
 };
 
-const darkColors = {
+export const darkColors = {
   channelListBackground: "#292b2f",
   channelBackground: "transparent",
   channelPressedBackground: "#de2440",
