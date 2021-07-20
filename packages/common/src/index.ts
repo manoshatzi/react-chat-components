@@ -1,5 +1,6 @@
 export * from "./chat";
 export * from "./channel-list";
+export * from "./member-list";
 export * from "./helpers";
 export * from "./hooks";
 export * from "./types";

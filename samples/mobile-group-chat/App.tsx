@@ -3,8 +3,8 @@ import { StyleSheet, SafeAreaView, Switch, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import PubNub from "pubnub";
 import { PubNubProvider } from "pubnub-react";
-import { Chat, ChannelList } from "@pubnub/react-native-chat-components";
-import { socialChannels } from "@pubnub/sample-data";
+import { Chat, ChannelList, MemberList } from "@pubnub/react-native-chat-components";
+import { socialChannels, rawUsers } from "@pubnub/sample-data";
 
 const pubnub = new PubNub({
   publishKey: "pub-c-2e4f37a4-6634-4df6-908d-32eb38d89a1b",
@@ -21,6 +21,7 @@ export function SimpleChat({ theme }: { theme: string }): JSX.Element {
         onChannelSwitched={(channel) => setCurrentChannel(channel)}
         style={channelsListStyle}
       />
+      <MemberList members={rawUsers} />
     </Chat>
   );
 }

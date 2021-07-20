@@ -1,17 +1,8 @@
-import React, { FC, ReactNode } from "react";
-import { UUIDMetadataObject, ObjectCustom } from "pubnub";
-import { usePubNub } from "pubnub-react";
-import { useAtom } from "jotai";
-import { ThemeAtom } from "@pubnub/chat-components-common";
+import React, { FC } from "react";
+import { MemberListCoreProps, useMemberListCore } from "@pubnub/chat-components-common";
 import "./member-list.scss";
 
-export interface MemberListProps {
-  children?: ReactNode;
-  /** Pass a list of members, including metadata, to render on the list */
-  members: UUIDMetadataObject<ObjectCustom>[] | string[];
-  /** Provide custom user renderer to override themes and CSS variables. */
-  memberRenderer?: (member: UUIDMetadataObject<ObjectCustom>) => JSX.Element;
-}
+export type MemberListProps = MemberListCoreProps;
 
 /**
  * Renders a list of members. It can represent all users of the application, only members of
@@ -20,37 +11,7 @@ export interface MemberListProps {
  * presence indicators can be added.
  */
 export const MemberList: FC<MemberListProps> = (props: MemberListProps) => {
-  const pubnub = usePubNub();
-  const [theme] = useAtom(ThemeAtom);
-
-  /*
-  /* Helper functions
-  */
-
-  const isOwnMember = (uuid: string) => {
-    return pubnub.getUUID() === uuid;
-  };
-
-  const memberSorter = (a, b) => {
-    if (isOwnMember(a.id)) return -1;
-    if (isOwnMember(b.id)) return 1;
-
-    return a.name.localeCompare(b.name, "en", { sensitivity: "base" });
-  };
-
-  const memberFromString = (member: UUIDMetadataObject<ObjectCustom> | string) => {
-    if (typeof member === "string") {
-      return {
-        id: member,
-        name: member,
-      };
-    }
-    return member;
-  };
-
-  /*
-  /* Renderers
-  */
+  const { isOwnMember, memberSorter, memberFromString, theme } = useMemberListCore(props);
 
   const renderMember = (member) => {
     if (props.memberRenderer) return props.memberRenderer(member);

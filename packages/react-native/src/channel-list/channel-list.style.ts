@@ -32,7 +32,6 @@ export default (theme: Themes | ""): StyleSheet => {
 
   return StyleSheet.create({
     channelListWrapper: {
-      backgroundColor: "red",
       flex: 1,
     },
     channelList: {
