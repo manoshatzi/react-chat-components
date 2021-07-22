@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-import { StyleSheet, SafeAreaView, Switch, Text, View } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  Switch,
+  Text,
+  View,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import PubNub from "pubnub";
 import { PubNubProvider } from "pubnub-react";
-import { Chat, ChannelList, MemberList } from "@pubnub/react-native-chat-components";
+import { Chat, ChannelList, MemberList, MessageInput } from "@pubnub/react-native-chat-components";
 import { socialChannels, rawUsers } from "@pubnub/sample-data";
 
 const pubnub = new PubNub({
@@ -19,9 +27,10 @@ export function SimpleChat({ theme }: { theme: string }): JSX.Element {
       <ChannelList
         channels={socialChannels}
         onChannelSwitched={(channel) => setCurrentChannel(channel)}
-        style={channelsListStyle}
+        // style={channelsListStyle}
       />
-      <MemberList members={rawUsers} />
+      {/* <MemberList members={rawUsers} /> */}
+      <MessageInput />
     </Chat>
   );
 }
@@ -31,14 +40,19 @@ export default function App(): JSX.Element {
 
   return (
     <SafeAreaView style={[styles.safeArea, darkMode && styles.safeAreaDark]}>
-      <PubNubProvider client={pubnub}>
-        <SimpleChat theme={darkMode ? "dark" : "light"} />
-      </PubNubProvider>
-      <View style={styles.switchView}>
-        <Text style={[styles.switchLabel, darkMode && styles.switchLabelDark]}>Dark theme</Text>
-        <Switch onValueChange={() => setDarkMode(!darkMode)} value={darkMode} />
-      </View>
-      <StatusBar style={darkMode ? "light" : "dark"} />
+      <KeyboardAvoidingView
+        style={styles.keyboardView}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+      >
+        <PubNubProvider client={pubnub}>
+          <SimpleChat theme={darkMode ? "dark" : "light"} />
+        </PubNubProvider>
+        <View style={styles.switchView}>
+          <Text style={[styles.switchLabel, darkMode && styles.switchLabelDark]}>Dark theme</Text>
+          <Switch onValueChange={() => setDarkMode(!darkMode)} value={darkMode} />
+        </View>
+        <StatusBar style={darkMode ? "light" : "dark"} />
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -51,6 +65,9 @@ const styles = StyleSheet.create({
   },
   safeAreaDark: {
     backgroundColor: "#292b2f",
+  },
+  keyboardView: {
+    flex: 1,
   },
   switchView: {
     alignItems: "center",

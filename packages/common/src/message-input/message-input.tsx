@@ -1,14 +1,6 @@
-import React, {
-  KeyboardEvent,
-  ChangeEvent,
-  useState,
-  useRef,
-  useEffect,
-  ReactElement,
-} from "react";
+import { useState, useEffect } from "react";
 import { useAtom } from "jotai";
 import { usePubNub } from "pubnub-react";
-import { EmojiPickerElementProps } from "../types";
 import {
   CurrentChannelAtom,
   ThemeAtom,
@@ -27,12 +19,8 @@ export interface MessageInputCoreProps {
   senderInfo?: boolean;
   /** Enable/disable firing the typing events when user is typing a message. */
   typingIndicator?: boolean;
-  /** Hides the Send button */
-  hideSendButton?: boolean;
   /** Custom UI component to override default display for the send button. */
   sendButton?: JSX.Element | string;
-  /** Pass in an emoji picker if you want it to be rendered in the input. See Emoji Pickers section of the docs to get more details */
-  emojiPicker?: ReactElement<EmojiPickerElementProps>;
   /** Callback to handle event when the text value changes. */
   onChange?: (value: string) => unknown;
   /** Callback for extra actions while sending a message */
@@ -47,9 +35,7 @@ export const useMessageInputCore = (props: MessageInputCoreProps) => {
   const pubnub = usePubNub();
 
   const [text, setText] = useState(props.draftMessage || "");
-  const [emojiPickerShown, setEmojiPickerShown] = useState(false);
   const [typingIndicatorSent, setTypingIndicatorSent] = useState(false);
-  const [picker, setPicker] = useState<ReactElement>();
 
   const [users] = useAtom(UsersMetaAtom);
   const [theme] = useAtom(ThemeAtom);
@@ -57,23 +43,6 @@ export const useMessageInputCore = (props: MessageInputCoreProps) => {
   const [onErrorObj] = useAtom(ErrorFunctionAtom);
   const onError = onErrorObj.function;
   const [typingIndicatorTimeout] = useAtom(TypingIndicatorTimeoutAtom);
-
-  const inputRef = useRef<HTMLTextAreaElement>(null);
-  const pickerRef = useRef<HTMLDivElement>(null);
-
-  /*
-  /* Helper functions
-  */
-
-  const autoSize = () => {
-    const input = inputRef.current;
-    if (!input) return;
-
-    setTimeout(() => {
-      input.style.cssText = `height: auto;`;
-      input.style.cssText = `height: ${input.scrollHeight}px;`;
-    }, 0);
-  };
 
   /*
   /* Commands
@@ -123,48 +92,12 @@ export const useMessageInputCore = (props: MessageInputCoreProps) => {
   /* Event handlers
   */
 
-  const handleEmojiInsertion = (emoji: { native: string }) => {
+  const handleInputChange = (newText: string) => {
     try {
-      if (!("native" in emoji)) return;
-      setText(text + emoji.native);
-      setEmojiPickerShown(false);
-    } catch (e) {
-      onError(e);
-    }
-  };
-
-  const handleClosePicker = (event: MouseEvent) => {
-    try {
-      setEmojiPickerShown((pickerShown) => {
-        if (!pickerShown || pickerRef.current?.contains(event.target as Node)) return pickerShown;
-        return false;
-      });
-    } catch (e) {
-      onError(e);
-    }
-  };
-
-  const handleKeyPress = (event: KeyboardEvent<HTMLTextAreaElement>) => {
-    try {
-      if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
-        sendMessage();
-      }
-    } catch (e) {
-      onError(e);
-    }
-  };
-
-  const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    try {
-      const textArea = event.target as HTMLTextAreaElement;
-      const newText = textArea.value;
-
       if (props.typingIndicator && newText.length) startTypingIndicator();
       if (props.typingIndicator && !newText.length) stopTypingIndicator();
 
       props.onChange && props.onChange(newText);
-      autoSize();
       setText(newText);
     } catch (e) {
       onError(e);
@@ -174,20 +107,6 @@ export const useMessageInputCore = (props: MessageInputCoreProps) => {
   /*
   /* Lifecycle
   */
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClosePicker);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClosePicker);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (React.isValidElement(props.emojiPicker)) {
-      setPicker(React.cloneElement(props.emojiPicker, { onSelect: handleEmojiInsertion }));
-    }
-  }, [props.emojiPicker]);
 
   useEffect(() => {
     let timer = null;
@@ -202,14 +121,9 @@ export const useMessageInputCore = (props: MessageInputCoreProps) => {
   }, [typingIndicatorSent]);
 
   return {
-    emojiPickerShown,
     handleInputChange,
-    handleKeyPress,
-    inputRef,
-    picker,
-    pickerRef,
     sendMessage,
-    setEmojiPickerShown,
+    setText,
     text,
     theme,
   };
