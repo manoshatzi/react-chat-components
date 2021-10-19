@@ -26,7 +26,7 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
-/*! 4.32.1 / Consumer  */
+/*! 4.33.1 / Consumer  */
 
 /*! lil-uuid - v0.1 - MIT License - https://github.com/lil-js/uuid */
 
