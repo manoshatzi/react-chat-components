@@ -1,27 +1,25 @@
 {
   "files": {
-    "main.css": "/react-chat-components/samples/static/css/main.df165bd5.chunk.css",
-    "main.js": "/react-chat-components/samples/static/js/main.fc725693.chunk.js",
-    "main.js.map": "/react-chat-components/samples/static/js/main.fc725693.chunk.js.map",
-    "runtime-main.js": "/react-chat-components/samples/static/js/runtime-main.12cc939b.js",
-    "runtime-main.js.map": "/react-chat-components/samples/static/js/runtime-main.12cc939b.js.map",
-    "static/css/2.d408779a.chunk.css": "/react-chat-components/samples/static/css/2.d408779a.chunk.css",
-    "static/js/2.f941b5d7.chunk.js": "/react-chat-components/samples/static/js/2.f941b5d7.chunk.js",
-    "static/js/2.f941b5d7.chunk.js.map": "/react-chat-components/samples/static/js/2.f941b5d7.chunk.js.map",
+    "main.css": "/react-chat-components/samples/static/css/main.50ddccc9.chunk.css",
+    "main.js": "/react-chat-components/samples/static/js/main.f39ac012.chunk.js",
+    "main.js.map": "/react-chat-components/samples/static/js/main.f39ac012.chunk.js.map",
+    "runtime-main.js": "/react-chat-components/samples/static/js/runtime-main.7143dcf8.js",
+    "runtime-main.js.map": "/react-chat-components/samples/static/js/runtime-main.7143dcf8.js.map",
+    "static/css/2.eb248026.chunk.css": "/react-chat-components/samples/static/css/2.eb248026.chunk.css",
+    "static/js/2.2efe975f.chunk.js": "/react-chat-components/samples/static/js/2.2efe975f.chunk.js",
+    "static/js/2.2efe975f.chunk.js.map": "/react-chat-components/samples/static/js/2.2efe975f.chunk.js.map",
     "index.html": "/react-chat-components/samples/index.html",
-    "static/css/2.d408779a.chunk.css.map": "/react-chat-components/samples/static/css/2.d408779a.chunk.css.map",
-    "static/css/main.df165bd5.chunk.css.map": "/react-chat-components/samples/static/css/main.df165bd5.chunk.css.map",
-    "static/js/2.f941b5d7.chunk.js.LICENSE.txt": "/react-chat-components/samples/static/js/2.f941b5d7.chunk.js.LICENSE.txt",
-    "static/media/megaphone.14e3562d.svg": "/react-chat-components/samples/static/media/megaphone.14e3562d.svg",
-    "static/media/people-group.b7547400.svg": "/react-chat-components/samples/static/media/people-group.b7547400.svg",
-    "static/media/plus-circle.8e12a5cf.svg": "/react-chat-components/samples/static/media/plus-circle.8e12a5cf.svg",
-    "static/media/sign-out.90a75957.svg": "/react-chat-components/samples/static/media/sign-out.90a75957.svg"
+    "static/css/2.eb248026.chunk.css.map": "/react-chat-components/samples/static/css/2.eb248026.chunk.css.map",
+    "static/css/main.50ddccc9.chunk.css.map": "/react-chat-components/samples/static/css/main.50ddccc9.chunk.css.map",
+    "static/js/2.2efe975f.chunk.js.LICENSE.txt": "/react-chat-components/samples/static/js/2.2efe975f.chunk.js.LICENSE.txt",
+    "static/js/main.f39ac012.chunk.js.LICENSE.txt": "/react-chat-components/samples/static/js/main.f39ac012.chunk.js.LICENSE.txt",
+    "static/media/people-group.b7547400.svg": "/react-chat-components/samples/static/media/people-group.b7547400.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.12cc939b.js",
-    "static/css/2.d408779a.chunk.css",
-    "static/js/2.f941b5d7.chunk.js",
-    "static/css/main.df165bd5.chunk.css",
-    "static/js/main.fc725693.chunk.js"
+    "static/js/runtime-main.7143dcf8.js",
+    "static/css/2.eb248026.chunk.css",
+    "static/js/2.2efe975f.chunk.js",
+    "static/css/main.50ddccc9.chunk.css",
+    "static/js/main.f39ac012.chunk.js"
   ]
 }
