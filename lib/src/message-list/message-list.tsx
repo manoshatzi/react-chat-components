@@ -51,6 +51,8 @@ export interface MessageListProps {
   fetchMessages?: number;
   /** Option to enable rendering reactions that were added to messages. Make sure to also set up reactionsPicker when this option is enabled. */
   enableReactions?: boolean;
+  /** Option to enable date instead of time for each message. */
+  enableDate?: boolean;
   /** Option to provide custom welcome messages to replace the default ones. Set to "false" to disable it. */
   welcomeMessages?: false | MessageEnvelope | MessageEnvelope[];
   /** Option to enable message reactions. Pass it in the emoji picker component. For more details, refer to the Emoji Pickers section in the docs. */
@@ -415,7 +417,7 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
           <div className="pn-msg__content">
             <div className="pn-msg__title">
               <span className="pn-msg__author">{user?.name || uuid}</span>
-              <span className="pn-msg__time">{date}</span>
+              <span className="pn-msg__time">{props.enableReactions? date : time}</span>
             </div>
             {message?.text &&
               (props.bubbleRenderer && (props.filter ? props.filter(envelope) : true) ? (
@@ -563,5 +565,6 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
 
 MessageList.defaultProps = {
   enableReactions: false,
+  enableDate: false,
   fetchMessages: 0,
 };
