@@ -415,7 +415,7 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
           <div className="pn-msg__content">
             <div className="pn-msg__title">
               <span className="pn-msg__author">{user?.name || uuid}</span>
-              <span className="pn-msg__time">{time}</span>
+              <span className="pn-msg__time">{date}</span>
             </div>
             {message?.text &&
               (props.bubbleRenderer && (props.filter ? props.filter(envelope) : true) ? (
