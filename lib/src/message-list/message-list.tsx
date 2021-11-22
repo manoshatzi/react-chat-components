@@ -120,6 +120,12 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
     return formatter.format(date);
   };
 
+  const getDate = (timestamp: number) => {
+    const ts = String(timestamp);
+    const date = new Date(parseInt(ts) / 10000);
+    console.log('this is now the date', date)
+  }
+
   const scrollToBottom = () => {
     if (!endRef.current) return;
     endRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -383,6 +389,7 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
     const uuid = envelope.uuid || envelope.publisher || "";
     const time = getTime(envelope.timetoken as number);
     console.log('time ===>>', envelope.timetoken, time);
+    getDate(envelope.timetoken as number);
     const isOwn = isOwnMessage(uuid);
     const message = isFileMessage(envelope.message) ? envelope.message.message : envelope.message;
     const user = message?.sender || getUser(uuid);
