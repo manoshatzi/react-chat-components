@@ -382,6 +382,7 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
   const renderMessage = (envelope: MessageEnvelope) => {
     const uuid = envelope.uuid || envelope.publisher || "";
     const time = getTime(envelope.timetoken as number);
+    console.log('time ===>>', envelope.timetoken, time);
     const isOwn = isOwnMessage(uuid);
     const message = isFileMessage(envelope.message) ? envelope.message.message : envelope.message;
     const user = message?.sender || getUser(uuid);
