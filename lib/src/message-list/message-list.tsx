@@ -40,6 +40,7 @@ export interface MessageRendererProps {
   isOwn: boolean;
   message: MessageEnvelope;
   time: string;
+  date: string;
   editedText: string;
   user?: UUIDMetadataObject<ObjectCustom>;
 }
@@ -123,7 +124,8 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
   const getDate = (timestamp: number) => {
     const ts = String(timestamp);
     const date = new Date(parseInt(ts) / 10000);
-    console.log('this is now the date', date)
+    const formatter = new Intl.DateTimeFormat([], { dateStyle: 'full', timeStyle: 'short' });
+    return formatter.format(date);
   }
 
   const scrollToBottom = () => {
@@ -388,8 +390,7 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
   const renderMessage = (envelope: MessageEnvelope) => {
     const uuid = envelope.uuid || envelope.publisher || "";
     const time = getTime(envelope.timetoken as number);
-    console.log('time ===>>', envelope.timetoken, time);
-    getDate(envelope.timetoken as number);
+    const date = getDate(envelope.timetoken as number);
     const isOwn = isOwnMessage(uuid);
     const message = isFileMessage(envelope.message) ? envelope.message.message : envelope.message;
     const user = message?.sender || getUser(uuid);
@@ -399,7 +400,7 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
     const editedText = (Object.entries(actions?.updated || {}).pop() || []).shift() as string;
 
     if (props.messageRenderer && (props.filter ? props.filter(envelope) : true))
-      return props.messageRenderer({ message: envelope, user, time, isOwn, editedText });
+      return props.messageRenderer({ message: envelope, user, time, date, isOwn, editedText });
 
     return (
       <>
@@ -418,7 +419,7 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
             </div>
             {message?.text &&
               (props.bubbleRenderer && (props.filter ? props.filter(envelope) : true) ? (
-                props.bubbleRenderer({ message: envelope, user, time, isOwn, editedText })
+                props.bubbleRenderer({ message: envelope, user, time, date, isOwn, editedText })
               ) : (
                 <div className="pn-msg__bubble">{editedText || message?.text}</div>
               ))}
