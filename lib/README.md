@@ -1,5 +1,7 @@
 # PubNub Chat Components for React
 
+this is updated now
+
 PubNub Chat Components for React are the fastest way to add chat features like direct and group
 messaging, typing indicators, reactions, without going through the complexity of low-level
 architecture of realtime networks.
